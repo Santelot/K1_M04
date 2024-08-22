@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook - Misión</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #ffeb3b;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .nav-buttons button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .nav-buttons button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-6').style.display = 'none';
+            }
+        }
+
+        function navigateTo(id) {
+            var element = document.getElementById(id);
+            window.scrollTo({
+                top: element.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</head>
+<body onload="updateActivities()">
+
+<div class="header">
+    <h1>Playbook - K1 - M04 </h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 30 minutos</h2>
+
+    <!-- Actividad 1 (3 pasos) -->
+    <div id="activity-1" class="activity">
+        <div class="banner" onclick="toggleContent('saludo_ritual')">
+            <div class="title">
+                <span>📚 Actividad 1: Saludo y Ritual Gnius Club (3 pasos)</span>
+                <span>⏰ Tiempo: 2 minutos</span>
+            </div>
+            <div class="subtitle">Recepción de los genios y motivación para la actividad</div>
+        </div>
+        <div id="saludo_ritual" class="content">
+            <div class="section">
+                <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 2 "Gnius Club"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">🌈 ¡Hola, genios! 🌟 ¡Qué gusto verlos hoy! Tenemos una misión súper colorida por delante. Hoy vamos a jugar con diferentes colores y a aprender a clasificarlos. ¿Están listos para descubrir cuántos colores pueden encontrar y agrupar? ¡Será muy divertido y lleno de sorpresas!</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 2 (0.5 minutos): Proyectar Diapositiva 3 "Clasificación de Colores"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">Hoy vamos a ver cómo podemos organizar y clasificar diferentes colores. ¿Saben que clasificar es como hacer grupos? Por ejemplo, podemos poner todos los bloques rojos juntos, o todos los bloques azules en otro grupo. ¡Vamos a ver cuántos grupos de colores podemos hacer juntos! 🌟</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 3 (1 minuto): Mantener la Diapositiva 3</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">¡Vamos a empezar moviéndonos como los colores! Si te sientes como el rojo, salta como si fueras una llama. Si te sientes como el azul, estírate como si fueras el cielo. Y si te sientes como el amarillo, da vueltas como un rayo de sol. ¡Vamos a llenar esta clase de energía y colores! 🌈</div>
+            </div>
+        </div>
+    </div>
+<!-- Actividad 2 (2 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('cancion_baile')">
+        <div class="title">
+            <span>🎵 Actividad 2: Canción y Baile del Día (2 pasos)</span>
+            <span>⏰ Tiempo: 3 minutos</span>
+        </div>
+        <div class="subtitle">Moviéndonos y cantando para aprender sobre los colores</div>
+    </div>
+    <div id="cancion_baile" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 4 "Canción y Baile del Día"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">🎵 Genios, hoy tenemos una canción muy especial. Vamos a cantar sobre los colores y descubrir cuál es nuestro favorito. ¡Será muy divertido bailar y cantar mientras pensamos en todos los colores que nos gustan! ¿Listos para moverse al ritmo de la música? ¡Vamos a divertirnos juntos! 🌈🎉</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2.5 minutos): Proyectar el video de la canción "¿Cuál Es Tu Color Favorito? - Super Simple en Español" y guiar a los genios en los movimientos.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Es hora de movernos! 🎶 Mientras cantamos sobre los colores, pensemos en cuál es nuestro favorito. ¡Podemos saltar cuando escuchemos nuestro color favorito, estirarnos, y bailar mientras descubrimos todos los colores que hay! 🌟</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 3 (6 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('formacion_equipos')">
+        <div class="title">
+            <span>🤝 Actividad 3: Formación de Equipos (6 pasos)</span>
+            <span>⏰ Tiempo: 6.5 minutos</span>
+        </div>
+        <div class="subtitle">Trabajando en parejas para clasificar los colores</div>
+    </div>
+    <div id="formacion_equipos" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 5 "Formación de Parejas"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, hoy vamos a trabajar en parejas. Eso significa que tendrán un compañero para compartir ideas y trabajar juntos. ¡Esto hará la actividad aún más divertida!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2 minutos): Mantener la Diapositiva 5. Maestros: asegúrense de que todas las parejas estén formadas, cada niño tenga sus bloques listos, y estén preparados para la actividad.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora, busquen a un amigo y formen su pareja. Cuando tengan su pareja, denle un gran saludo y díganle "¡Hola, compañero!" ¡Hoy vamos a hacer cosas geniales juntos!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Mantener la Diapositiva 5. Maestros: verifiquen que todas las parejas estén listas y preparadas para la actividad.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¿Todos tienen su pareja? ¡Perfecto! Ahora que están listos, recuerden que trabajar en pareja significa compartir y ayudarse unos a otros. ¡Cuanto más trabajen juntos, más divertida será la actividad!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Mantener la Diapositiva 5. Maestros: motiven a los genios a colaborar y compartir ideas con sus compañeros.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">En sus parejas, cada uno de ustedes tiene algo único para compartir. Cuando combinan sus ideas y trabajan juntos, pueden crear algo realmente especial. ¡Así que asegúrense de escuchar a su compañero y de compartir sus materiales para que ambos puedan construir!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (2 minutos): Mantener la Diapositiva 5. Maestros: guíen a los genios para que preparen sus bloques y estén listos para la actividad.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Muy bien, parejas! Es hora de preparar sus bloques y estar listos para trabajar juntos. ¡Vamos a ver cómo trabajan en equipo!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (0.5 minutos): Mantener la Diapositiva 5. Maestros: asegúrense de que todos los genios estén listos y enfocados en la misión que sigue.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Perfecto! Todos los equipos de dos están listos. Ahora que estamos organizados, ¡prepárense para nuestra próxima misión en pareja!</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 4 (3 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('actividad_calentamiento')">
+        <div class="title">
+            <span>🌈 Actividad 4: Actividad de Calentamiento (3 pasos)</span>
+            <span>⏰ Tiempo: 3.5 minutos</span>
+        </div>
+        <div class="subtitle">Clasificación de bloques por colores</div>
+    </div>
+    <div id="actividad_calentamiento" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 6 "Clasificación por Colores"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, vamos a empezar con un pequeño calentamiento. Quiero que tomen sus bloques y los acomoden por colores. Hagan una pila de rojos, una de azules, una de amarillos, ¡y así con todos los colores que tengan! ¿Listos? ¡Empecemos a clasificar! 🌈</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (3 minuto): Mantener la Diapositiva 6 visible. Configurar el temporizador visual para 3 minutos. Maestros: circulen por el aula, ofreciendo orientación y apoyo donde sea necesario.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Vamos, genios! Clasifiquen todos sus bloques por colores. Recuerden, cada bloque debe estar en su pila del color correcto. Tienen 3 minutos. ¡Veamos qué tan rápido pueden hacerlo y cuántos colores pueden clasificar! 🌟</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (3 minuto): Mantener la Diapositiva 6 visible. Maestros: inviten a algunos genios a compartir cómo clasificaron sus bloques.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Tiempo de ver qué lograron! Ahora que han clasificado sus bloques, miren a su alrededor y vean cómo lo hicieron sus compañeros. ¿Tienen las mismas pilas de colores? ¿Alguien encontró una manera diferente de clasificar? ¡Vamos a compartir nuestras ideas! 🌈</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 5 (4 pasos) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('construyendo_torre')">
+        <div class="title">
+            <span>🌈 Actividad 5: Construyendo una Torre (4 pasos)</span>
+            <span>⏰ Tiempo: 9 minutos</span>
+        </div>
+        <div class="subtitle">Construir una torre alta siguiendo un orden específico de colores</div>
+    </div>
+    <div id="construyendo_torre" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 7 "Construyendo una Torre con Colores"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, ya han construido torres antes, pero hoy tenemos un desafío extra. Vamos a construir una torre alta, pero esta vez deben hacerlo siguiendo un orden específico de colores. ¡Será un reto divertido! ¿Listos para intentarlo?</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (5.5 minutos): Mantener la Diapositiva 7 visible. Configurar el temporizador visual para 5 minutos. Maestros: circulen por el aula, ofreciendo orientación y apoyo donde sea necesario.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Es hora de construir! Junto con su compañero, tomen sus bloques y comiencen a formar su torre. Recuerden, deben seguir el orden de colores: por ejemplo, rojo, naranja, amarillo, verde y azul. Tienen 5 minutos. ¡Trabajen juntos y hagan su torre lo más alta posible mientras siguen este orden! 🌈</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (2 minutos): Mantener la Diapositiva 7 visible. Maestros: guíen a los genios para que verifiquen el orden de colores en sus torres y hagan ajustes si es necesario.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Muy bien, genios! Ahora que han construido sus torres, tómense un momento para revisar si los colores están en el orden correcto. Si algo no está bien, pueden hacer ajustes. ¡Vamos a asegurarnos de que nuestras torres sean coloridas y perfectas! 🌟</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar Diapositiva 8 "¡Torre Completa!". Maestros: inviten a los genios a compartir sus torres y celebren su logro.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Qué torres tan increíbles han construido, genios! Y lo mejor es que han seguido el orden de colores a la perfección. ¡Han hecho un trabajo fantástico! Ahora, ¿quién quiere mostrar su torre y contarnos cómo lo hizo? ¡Vamos a aplaudir y celebrar el gran trabajo de todos! 👏</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 6 (3 pasos) -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">
+            <span>🏅 Actividad 6: Honor The Dojo y Despedida (3 pasos)</span>
+            <span>⏰ Tiempo: 3 minutos</span>
+        </div>
+        <div class="subtitle">Recogida de ladrillos y despedida</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1.5 minuto): Proyectar Diapositiva 8 "Honor The Dojo: Recogida de Ladrillos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, ¡qué gran trabajo hicieron hoy con sus torres de colores! Ahora es momento de recoger todos los ladrillos que usamos y llevarlos al frente para guardarlos. ¡Así mantenemos todo en orden para la próxima misión!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Mantener la Diapositiva 8. Maestros: asegúrense de que todos los ladrillos estén guardados y prepárense para la despedida.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, ¡qué día tan divertido hemos tenido! ¿Les gustó construir y jugar con los colores? Si les gustó la clase de hoy, ¡levanten los brazos y agiten sus manos como si estuvieran saludando a todos sus amigos! 🌍🙌</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 9 "¡Hasta la próxima, genios!" Maestros: despídanse de los niños con una sonrisa y energía positiva.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Y ahora es momento de decir adiós, genios. ¡Gracias por venir y por construir cosas tan increíbles hoy! Nos vemos en la próxima misión, donde habrá más diversión y muchas más aventuras. ¡Hasta pronto, genios! 👋</div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>
